@@ -1,9 +1,10 @@
 <template>
   <div class="top">
-  aaaaaaaaaaaaああああああ<br>
-      <img src="./assets/text.png">
-      <img src="./assets/logo.png">
-      aaaaaaaaaaaa
+      <img src="./assets/text.png"><br>
+      <img src="./assets/logo.png"><br>
+      <button type="button"onclick="location.href='quiz'">
+        <img src="./assets/start_button.png">
+      </button>
   </div>
 </template>
 
