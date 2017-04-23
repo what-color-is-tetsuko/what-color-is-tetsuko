@@ -1,53 +1,62 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="top">
+    <div class='bgmovie'>
+<!--    	<iframe frameborder="0" height="100%" width="100%" src="https://www.youtube.com/embed/iS8jKACWPuw?autoplay=1&controls=0&loop=1&rel=0&showinfo=0&autohide=1&wmode=transparent&hd=1&loop=1"></iframe> -->
+      <div v-for="(question, index) in questions">
+              <h2>{{ question.text }}</h2>
+      </div>
+aaaaaaaaaaaaaaa      aaaaaaaaaaaa
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Hello World!',
+      questions: [
+      {
+        text: "Question 1",
+        responses: [
+           {text: 'Wrong, too bad.'}, 
+           {text: 'Right!', correct: true}, 
+        ]
+      }, {
+        text: "Question 2",
+        responses: [
+           {text: 'Right answer', correct: true}, 
+           {text: 'Wrong answer'}, 
+        ]
+      }]
+    }
+  },
+  methods: {
+    clear () {
+      this.msg = ''
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+h2 {
+  color: #fff;
+  background-color: #000;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.top {
+  position: fixed;
+  z-index: -99;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  background-color: #000;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+.bgmovie {
+  position: fixed;
+  z-index: -99;
+  width: 100%;
+  height: 100%;
 }
 </style>
