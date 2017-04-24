@@ -1,8 +1,10 @@
 <template>
+
   <div class="top">
     <div class='bgmovie'>
-<!--    	<iframe frameborder="0" height="100%" width="100%" src="https://www.youtube.com/embed/iS8jKACWPuw?autoplay=1&controls=0&loop=1&rel=0&showinfo=0&autohide=1&wmode=transparent&hd=1&loop=1"></iframe> -->
+        <youtube :video-id="videoId" :mute=true player-width="1280" player-height="750" :player-vars="{ autoplay: 1 }"></youtube>
     </div>
+
 
     <div class="container">
           <div v-if="questionOpen">
@@ -49,6 +51,7 @@
 export default {
   data () {
     return {
+      videoId: 'iS8jKACWPuw',
       questions: {},
       question: {
         problem: '',
@@ -109,10 +112,11 @@ export default {
           window.scrollTo(0,0);
         }
       },
+      
     
       // 初期化処理
       initializeApp: function () {
-
+        
         console.log('init')
 
         var yanagi = 
