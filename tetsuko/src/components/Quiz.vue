@@ -72,9 +72,8 @@ export default {
         this.isAnswerButtonDisabled = true;
         this.isCorrect = this.compareArr(answer, this.question.corrects[0]);
         if (this.isCorrect) this.correctNum++;
-      },
-      // 次の問題へ
-      nextQuiz: function () {
+
+        // nextQuizのそのまんま入れた
         this.answerOpen = false;
         this.questionIndex++;
 
@@ -99,8 +98,33 @@ export default {
           window.scrollTo(0,0);
         }
       },
+      // 次の問題へ
+      // nextQuiz: function () {
+      //   this.answerOpen = false;
+      //   this.questionIndex++;
+
+      //   // questionIndex + 1と問題総数が一緒の場合、終わりページを開く
+      //   if (this.questionIndex === (this.questions.length + 1) ) {
+      //     this.questionIndex = this.questions.length;
+      //     this.questionOpen = false;
+      //     this.endOpen = true;
+      //     window.scrollTo(0,0);
+      //   } else {
+      //     // questionに次の問題をセットする
+      //     var n = this.questionIndex - 1
+      //     this.question = this.questions[n];
       
-    
+      //     // 選択肢を生成する correctsとincorrectsを繋げシャッフル
+
+      //     var arr = this.question.incorrects;
+      //     arr.push(this.question.corrects[0]);
+      //     this.choices = arr;
+
+      //     this.checkedChoices = [];
+      //     window.scrollTo(0,0);
+      //   }
+      // },
+          
       // 初期化処理
       initializeApp: function () {
         
