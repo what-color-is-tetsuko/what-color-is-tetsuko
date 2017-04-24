@@ -1,30 +1,17 @@
 <template>
-
   <div class="top">
     <div class='bgmovie'>
         <youtube :video-id="videoId" :mute=true player-width="1280" player-height="750" :player-vars="{ autoplay: 1, showinfo: 0, controls: 0 }"></youtube>
     </div>
-
-
     <div class="container">
           <div v-if="questionOpen">
           <p v-html="question.text"></p>
           <p v-model="question.reference"></p>
           <ul>
             <li v-for="choice in choices">
-                      <!--
-
-              <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }}
-              !-->
-              <button                :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
-              
+              <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
             </li>
           </ul>
-                    <!--
-
-        <p>選択: {{ checkedChoices }}</p>
-                    <button v-on:click="answerQuiz" class="button is-primary" :disabled="answerOpen || checkedChoices.length === 0">回答</button>
-                    !-->
         </div>
 
         <div v-if="answerOpen" transition="fade">
