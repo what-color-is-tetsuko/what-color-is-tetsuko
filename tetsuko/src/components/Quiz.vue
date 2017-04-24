@@ -10,13 +10,30 @@
           <p v-model="question.reference"></p>
           <ul>
             <li v-for="choice in choices">
-              <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }}
+<!--              <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }} !-->
+              <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz">{{ choice }}</button>
               
             </li>
           </ul>
           <p>選択: {{ checkedChoices }}</p>
                     <button v-on:click="answerQuiz" class="button is-primary" :disabled="answerOpen || checkedChoices.length === 0">回答</button>
-          <p>出典: {{ question.reference }}</p>
+        </div>
+
+        <div v-if="answerOpen" transition="fade">
+          <!--
+          <h1>解答</h1>
+          <button v-if="isCorrect" id="correct" class="button is-info"> O </button>
+          <button v-else id="wrong" class="button is-danger"> X </button>
+          <h3>正解は：<span v-for="correct in question.corrects">{{ correct }} </span></h3>
+          <p v-html="question.answer"></p>
+          !-->
+          <button class="button is-primary" v-on:click="nextQuiz">次の問題</button>
+        </div>
+
+        <div v-if="endOpen" transition="fade">
+          <h1>クリア！!!!!!!!!!!</h1>
+          <h2>正答数： {{ correctNum }} out of {{ questionIndex }}</h2>
+          <button class="button is-primary" v-on:click="initializeApp">もう１度！</button>
         </div>
     </div>
   </div>
@@ -51,7 +68,7 @@ export default {
         // 正解を開き正誤の結果を表示する
         this.answerOpen = true;
         this.isAnswerButtonDisabled = true;
-        this.isCorrect = compareArr(this.checkedChoices, this.question.corrects);
+        this.isCorrect = this.compareArr(this.checkedChoices, this.question.corrects);
         if (this.isCorrect) this.correctNum++;
       },
       // 次の問題へ
@@ -60,17 +77,22 @@ export default {
         this.questionIndex++;
 
         // questionIndex + 1と問題総数が一緒の場合、終わりページを開く
-        if (this.questionIndex === this.questions.length) {
+        if (this.questionIndex === (this.questions.length + 1) ) {
           this.questionIndex = this.questions.length;
           this.questionOpen = false;
           this.endOpen = true;
           window.scrollTo(0,0);
         } else {
-
           // questionに次の問題をセットする
-          this.question = this.questions[this.shuffledArr[this.questionIndex]];
+          var n = this.questionIndex - 1
+          this.question = this.questions[n];
+      
           // 選択肢を生成する correctsとincorrectsを繋げシャッフル
-          this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
+
+          var arr = this.question.incorrects;
+          arr.push(this.question.corrects[0]);
+          this.choices = arr;
+
           this.checkedChoices = [];
           window.scrollTo(0,0);
         }
@@ -84,23 +106,29 @@ export default {
         var questions = [
           {
             "id": "0001",
-            "text": "算数の問題です。1 + 1 = ?",
+            "text": "徹子の年齢は？",
             "corrects": [
-              "2"
+              "110歳"
             ],
             "incorrects": [
-              "1",
-              "3",
-              "4"
+              "110歳",
+              "120歳",
+              "1130歳"
             ],
-            "answer": "指を折り曲げて数えてみましょう。"
+            "answer": "よく考えましょう"
           },
           {
             "id": "0002",
-            "text": "22222222222222",
+            "text": "柳てつこ？",
             "corrects": [
-              "1"
-            ]
+              "黒"
+            ],
+            "incorrects": [
+              "白",
+              "ほぼ",
+              "赤"
+            ],
+            "answer": "Black!!!!!!!!"
           }
         ]
 
@@ -116,33 +144,23 @@ export default {
 
           //  問題の取得
           this.questions = questions;
-//          console.log(this.questions);
 
           // // 問題をランダムに並べた配列を作成する
-          var questionsNum = this.questions.length;
-          // // console.log(this.questions.length);
-     
+          var questionsNum = this.questions.length;     
           var arr = [];
              for (var i = 0; i < questionsNum; i++) {
               arr[i] = i;
           }
 
-            var randomIndex;
-            for (var i = 0; i < questionsNum; i++) {
-              randomIndex = Math.floor(Math.random() * arr.length);
-              this.shuffledArr[i] = arr[randomIndex];
-              arr.splice(randomIndex, 1);
-            }
-
             // questionにquestionsの1問目を設定する
-            this.question = this.questions[this.shuffledArr[this.questionIndex]];
+            this.question = this.questions[0];
      
             // 選択肢を生成する correctsとincorrectsを繋げシャッフル
-
-            console.log(this.question.incorrects);
-            console.log(this.question.corrects);
-
-            this.choices = [1, 2, 3, 4];
+            
+            // TODO: https://lodash.com/ 使っていい感じにする
+            var arr = this.question.incorrects;
+            arr.push(this.question.corrects[0]);
+            this.choices = arr;
 
     },
     // 画面生成後実行されるメソッド
@@ -154,6 +172,26 @@ export default {
     },
     prev () {
       this.questionIndex--;
+    },
+    compareArr: function (arr1, arr2) {
+      console.log(arr1);
+      console.log(arr2);
+      
+      // 解答数と回答数が異なる場合false
+      if (arr1.length !== arr2.length) {
+        return false;
+      }
+
+      arr1 = arr1.sort();
+      arr2 = arr2.sort();
+
+      // 解答と回答の内容が異なる場合false
+      for (var i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+          return false;
+        }
+      }
+      return true;
     }
   },
   mounted () {
@@ -163,6 +201,12 @@ export default {
 </script>
 
 <style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+}
 h2 {
   color: #fff;
   background-color: #000;
