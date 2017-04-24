@@ -5,7 +5,9 @@
     </div>
 
     <div class="container">
-    {{ questions }}
+    {{ questions }}<br>
+    {{ question }}<br>
+    {{ questionIndex + 1 }} / {{ questions.length }}
      </div>
      </div>
 </template>
@@ -69,16 +71,22 @@ export default {
 
         console.log('init')
 
-        var questions = {
-          "data": [
+        var questions = [
           {
             "id": "0001",
-            "problem": "算数の問題です。1 + 1 = ?",
+            "text": "算数の問題です。1 + 1 = ?",
             "corrects": [
               "2"
             ]
+          },
+          {
+            "id": "0002",
+            "text": "22222222222222",
+            "corrects": [
+              "1"
+            ]
           }
-        ]}
+        ]
 
           console.log('init vars');
           // 変数の初期化
@@ -89,13 +97,15 @@ export default {
           this.questionOpen = true;
           this.endOpen = false;
           this.checkedChoices = [];
-          console.log(this);
 
           //  問題の取得
           this.questions = questions;
+//          console.log(this.questions);
 
           // // 問題をランダムに並べた配列を作成する
-          // var questionsNum = data.questions.length;
+          var questionsNum = this.questions.length;
+          // // console.log(this.questions.length);
+          console.log(this.questions[1]);
 
           // var arr = [];
           //    for (var i = 0; i < questionsNum; i++) {
@@ -105,15 +115,16 @@ export default {
           //   var randomIndex;
           //   for (var i = 0; i < questionsNum; i++) {
           //     randomIndex = Math.floor(Math.random() * arr.length);
-          //     data.shuffledArr[i] = arr[randomIndex];
+          //     this.shuffledArr[i] = arr[randomIndex];
           //     arr.splice(randomIndex, 1);
           //   }
 
           //   // questionにquestionsの1問目を設定する
-          //   data.question = data.questions[data.shuffledArr[data.questionIndex]];
+          //   this.question = this.questions[this.shuffledArr[this.questionIndex]];
+          //   // console.log(this.question);
 
           //   // 選択肢を生成する correctsとincorrectsを繋げシャッフル
-          //   data.choices = _.shuffle(_.concat(data.question.corrects, data.question.incorrects));
+          //   // this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
 
     },
     // 画面生成後実行されるメソッド
