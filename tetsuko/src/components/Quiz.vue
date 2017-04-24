@@ -248,19 +248,18 @@ container {
 }
 .top {
   position: fixed;
-  z-index: -99;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
-  background-color: #000;
+  background-image: url("../assets/overlay.png");
 }
 .bgmovie {
+  opacity: 0.9;
   position: fixed;
   z-index: -99;
   width: 100%;
   height: 100%;
-  color: #fff;
   background-color: #000;
 }
 </style>
