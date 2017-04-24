@@ -10,13 +10,17 @@
           <p v-model="question.reference"></p>
           <ul>
             <li v-for="choice in choices">
+                      <!--
+
               <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }}
+              !-->
               <button                :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
               
             </li>
           </ul>
+                    <!--
+
         <p>選択: {{ checkedChoices }}</p>
-          <!--
                     <button v-on:click="answerQuiz" class="button is-primary" :disabled="answerOpen || checkedChoices.length === 0">回答</button>
                     !-->
         </div>
@@ -33,7 +37,7 @@
         </div>
 
         <div v-if="endOpen" transition="fade">
-          <h1>クリア！!!!!!!!!!!</h1>
+          <h1>あなたは {{ yanagi[correctNum] }}柳</h1>
           <h2>正答数： {{ correctNum }} out of {{ questionIndex }}</h2>
           <button class="button is-primary" v-on:click="initializeApp">もう１度！</button>
         </div>
@@ -59,7 +63,8 @@ export default {
       endOpen: false,
       questionIndex: 0,
       correctNum: 0,
-      shuffledArr: []
+      shuffledArr: [],
+      yanagi: {}
     }
   },
     methods: {
@@ -110,6 +115,13 @@ export default {
 
         console.log('init')
 
+        var yanagi = 
+          {
+            "0": "白",
+            "1": "ほぼ",
+            "2": "黒",
+          }
+
         var questions = [
           {
             "id": "0001",
@@ -118,7 +130,6 @@ export default {
               "110歳"
             ],
             "incorrects": [
-              "110歳",
               "120歳",
               "1130歳"
             ],
@@ -148,6 +159,9 @@ export default {
           this.questionOpen = true;
           this.endOpen = false;
           this.checkedChoices = [];
+
+
+          this.yanagi = yanagi;
 
           //  問題の取得
           this.questions = questions;
