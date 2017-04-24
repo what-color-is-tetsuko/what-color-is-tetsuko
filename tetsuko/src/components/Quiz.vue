@@ -10,13 +10,15 @@
           <p v-model="question.reference"></p>
           <ul>
             <li v-for="choice in choices">
-<!--              <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }} !-->
-              <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz">{{ choice }}</button>
+              <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }}
+              <button                :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
               
             </li>
           </ul>
-          <p>選択: {{ checkedChoices }}</p>
+        <p>選択: {{ checkedChoices }}</p>
+          <!--
                     <button v-on:click="answerQuiz" class="button is-primary" :disabled="answerOpen || checkedChoices.length === 0">回答</button>
+                    !-->
         </div>
 
         <div v-if="answerOpen" transition="fade">
@@ -62,13 +64,18 @@ export default {
   },
     methods: {
       // 回答する
-      answerQuiz: function () {
+      answerQuiz: function (answer) {
+        console.log('a');
+        console.log(answer);
+        console.log(this.question.corrects[0]);
+        console.log('b');
+
         // 項目を未選択の場合進まない
-        if (this.checkedChoices.length === 0) return;
+        // if (this.checkedChoices.length === 0) return;
         // 正解を開き正誤の結果を表示する
         this.answerOpen = true;
         this.isAnswerButtonDisabled = true;
-        this.isCorrect = this.compareArr(this.checkedChoices, this.question.corrects);
+        this.isCorrect = this.compareArr(answer, this.question.corrects[0]);
         if (this.isCorrect) this.correctNum++;
       },
       // 次の問題へ
@@ -174,16 +181,11 @@ export default {
       this.questionIndex--;
     },
     compareArr: function (arr1, arr2) {
-      console.log(arr1);
-      console.log(arr2);
       
       // 解答数と回答数が異なる場合false
       if (arr1.length !== arr2.length) {
         return false;
       }
-
-      arr1 = arr1.sort();
-      arr2 = arr2.sort();
 
       // 解答と回答の内容が異なる場合false
       for (var i = 0; i < arr1.length; i++) {
