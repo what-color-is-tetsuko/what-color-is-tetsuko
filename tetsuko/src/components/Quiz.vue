@@ -2,7 +2,7 @@
 
   <div class="top">
     <div class='bgmovie'>
-        <youtube :video-id="videoId" :mute=true player-width="1280" player-height="750" :player-vars="{ autoplay: 1 }"></youtube>
+        <youtube :video-id="videoId" :mute=true player-width="1280" player-height="750" :player-vars="{ autoplay: 1, showinfo: 0, controls: 0 }"></youtube>
     </div>
 
 
