@@ -5,11 +5,21 @@
     </div>
 
     <div class="container">
-    {{ questions }}<br>
-    {{ question }}<br>
-    {{ questionIndex + 1 }} / {{ questions.length }}
-     </div>
-     </div>
+          <div v-if="questionOpen">
+          <p v-html="question.text"></p>
+          <p v-model="question.reference"></p>
+          <ul>
+            <li v-for="choice in choices">
+              <input type="checkbox" :id="choice" :value="choice" v-model="checkedChoices" :disabled="answerOpen">{{ choice }}
+              
+            </li>
+          </ul>
+          <p>選択: {{ checkedChoices }}</p>
+                    <button v-on:click="answerQuiz" class="button is-primary" :disabled="answerOpen || checkedChoices.length === 0">回答</button>
+          <p>出典: {{ question.reference }}</p>
+        </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -77,7 +87,13 @@ export default {
             "text": "算数の問題です。1 + 1 = ?",
             "corrects": [
               "2"
-            ]
+            ],
+            "incorrects": [
+              "1",
+              "3",
+              "4"
+            ],
+            "answer": "指を折り曲げて数えてみましょう。"
           },
           {
             "id": "0002",
@@ -105,26 +121,28 @@ export default {
           // // 問題をランダムに並べた配列を作成する
           var questionsNum = this.questions.length;
           // // console.log(this.questions.length);
-          console.log(this.questions[1]);
+     
+          var arr = [];
+             for (var i = 0; i < questionsNum; i++) {
+              arr[i] = i;
+          }
 
-          // var arr = [];
-          //    for (var i = 0; i < questionsNum; i++) {
-          //     arr[i] = i;
-          // }
+            var randomIndex;
+            for (var i = 0; i < questionsNum; i++) {
+              randomIndex = Math.floor(Math.random() * arr.length);
+              this.shuffledArr[i] = arr[randomIndex];
+              arr.splice(randomIndex, 1);
+            }
 
-          //   var randomIndex;
-          //   for (var i = 0; i < questionsNum; i++) {
-          //     randomIndex = Math.floor(Math.random() * arr.length);
-          //     this.shuffledArr[i] = arr[randomIndex];
-          //     arr.splice(randomIndex, 1);
-          //   }
+            // questionにquestionsの1問目を設定する
+            this.question = this.questions[this.shuffledArr[this.questionIndex]];
+     
+            // 選択肢を生成する correctsとincorrectsを繋げシャッフル
 
-          //   // questionにquestionsの1問目を設定する
-          //   this.question = this.questions[this.shuffledArr[this.questionIndex]];
-          //   // console.log(this.question);
+            console.log(this.question.incorrects);
+            console.log(this.question.corrects);
 
-          //   // 選択肢を生成する correctsとincorrectsを繋げシャッフル
-          //   // this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
+            this.choices = [1, 2, 3, 4];
 
     },
     // 画面生成後実行されるメソッド
