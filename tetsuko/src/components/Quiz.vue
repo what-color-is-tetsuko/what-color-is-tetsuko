@@ -26,8 +26,15 @@
         </div>
 
         <div v-if="endOpen" transition="fade">
-          <h1>あなたは {{ yanagi[correctNum] }}柳</h1>
-          <h2>正答数： {{ correctNum }} out of {{ questionIndex }}</h2>
+        <span v-once>https://twitter.com/intent/tweet?text=あなたは{{ yanagi[correctNum] }}柳徹子！！！</span>
+          <h2>正答数： {{ correctNum }} / {{ questionIndex }}</h2>
+
+<div class="sns">
+      <a href="" target="_blank" title="Facebookでシェア"><img src="../assets/button_facebook.png" alt="facebook"></a>
+      <a v-bind:href="'https://twitter.com/intent/tweet?text=' + '私は' + yanagi[correctNum] + '柳徹子でした' + '%0Ahttp://tetsuco.com'" target="_blank" title="Twitterでシェア"><img src="../assets/button_twitter.png" alt="twitter"></a>
+      <a href="" target="_blank" title="LINEに送る"><img src="../assets/button_LINE.png" alt="LINE"></a>
+</div>
+
           <button class="button is-primary" v-on:click="initializeApp">もう１度！</button>
         </div>
     </div>
@@ -96,6 +103,7 @@ export default {
 
           this.checkedChoices = [];
           window.scrollTo(0,0);
+
         }
       },
       // 次の問題へ
