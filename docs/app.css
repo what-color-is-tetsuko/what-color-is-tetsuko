@@ -65,6 +65,7 @@ body{
 .button{
   background-color: transparent;
   border-color: transparent;
+  outline: 0;
 }
 
 .center{
