@@ -1,5 +1,8 @@
 <template>
   <div class="top">
+    <div class='bgmovie'>
+        <youtube :video-id="videoId" :mute=true player-width="1280" player-height="750" :player-vars="{ autoplay: 1, showinfo: 0, controls: 0 }"></youtube>
+    </div>
       <img src="./../assets/text.png"><br>
       <img src="./../assets/logo.png"><br>
       <button type="button"onclick="location.href='quiz'">
