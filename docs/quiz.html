@@ -53,10 +53,11 @@
                     </div>
                 </div>
                 <div class="sns">
-                    <a href="" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
-                    <a v-bind:href="'https://twitter.com/intent/tweet?text=' + '私は' + yanagi[correctNum] + '柳徹子でした' + '%0Ahttp://tetsuco.com'"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://quiz.what-color-is-tetsuko.xyz/" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
+                    <a v-bind:href="'https://twitter.com/intent/tweet?text=' + '黒柳テストの結果です。' + '私は' + correctNum + '問正解でしたので ' + yanagi[correctNum] + '柳徹子 でした。' + '%0Ahttp://quiz.what-color-is-tetsuko.xyz/' + '%0Ahttps://pbs.twimg.com/media/C76mnNuVUAAciff.jpg'"
                         target="_blank" title="Twitterでシェア"><img src="./assets/button_twitter.png" alt="twitter"></a>
-                    <a href="" target="_blank" title="LINEに送る"><img src="./assets/button_LINE.png" alt="LINE"></a>
+                    <a v-bind:href="'http://line.me/R/msg/text/?' + '私は' + correctNum + '問正解で' + '%0A「' + yanagi[correctNum] + '柳徹子」でした' + '%0A%0A黒柳テスト%0Ahttp://quiz.what-color-is-tetsuko.xyz/'"
+                        target="_blank" title="LINEに送る"><img src="./assets/button_LINE.png" alt="LINE"></a>
                 </div>
             </div>
         </div>

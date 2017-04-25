@@ -33,6 +33,14 @@ function onPlayerReady (event) {
 ga('create', 'UA-37377904-2', 'auto')
 ga('send', 'pageview')
 
+document.getElementById('shareBtn').onclick = function () {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/'
+  }, function (response) {})
+}
+
 // <body onload="onLoad();">
 // で呼び出すと読み込み前の画面が出て微妙なのでhtmlにべた書きする
 // function onLoad () {
