@@ -40,7 +40,7 @@
                         <img src="./assets/silhouette.png">
                     </div>
                     <div class="leftBox">
-                        <h2 class="resultText">正答数： {{ correctNum }} / {{ questionIndex }}（ここはなんとか柳にかわるよ）</h2>
+                        <h2 class="resultText"> {{ correctNum }}問正解なので<br>私は「{{ yanagi[correctNum] }}柳徹子」でした</h2>
                     </div>
                     <div class="leftBox">
                         <button class="button is-primary" v-on:click="initializeApp"><img src="./assets/button_retry.png"></button>
