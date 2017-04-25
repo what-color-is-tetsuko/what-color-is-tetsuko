@@ -20,6 +20,7 @@
     
     .bgmovie iframe {
         position: absolute;
+        opacity: 0.9;
         top: 0;
         left: 0;
         width: 100%;
