@@ -17,16 +17,18 @@
 </head>
 
 <body>
-    <div class="top">
-        <div id="app">
+    <div class="overlay">
+        <div id="app" class="questionBackground">
             <div v-if="questionOpen">
-                <p v-html="question.text"></p>
+                <p v-html="question.text" class="questionText"></p>
                 <p v-model="question.reference"></p>
+                <div class="choiceBox">
                 <ul>
                     <li v-for="choice in choices">
                         <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
                     </li>
                 </ul>
+                </div>
             </div>
 
             <div v-if="answerOpen" transition="fade">
