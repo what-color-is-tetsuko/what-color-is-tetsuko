@@ -14,7 +14,6 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" type="text/css" href="./app.css">
 </head>
-</head>
 
 <body>
     <div class="overlay">
@@ -23,11 +22,11 @@
                 <p v-html="question.text" class="questionText"></p>
                 <p v-model="question.reference"></p>
                 <div class="choiceBox">
-                <ul>
-                    <li v-for="choice in choices">
-                        <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
-                    </li>
-                </ul>
+                    <ul>
+                        <li v-for="choice in choices">
+                            <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
