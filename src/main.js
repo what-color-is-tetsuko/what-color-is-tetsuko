@@ -3,13 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import VueYouTubeEmbed from 'vue-youtube-embed'
+import VueYouTubeEmbed from 'vue-youtube-embed'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 
-// Vue.use(VueYouTubeEmbed)
+Vue.use(VueYouTubeEmbed)
 
 new Vue({
   el: '#app',
