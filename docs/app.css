@@ -102,6 +102,7 @@ body{
     border: none;
     font-size: 20px;
     color: #FFF;
+    outline: 0;
 }
 
 .questionBackground ul {
