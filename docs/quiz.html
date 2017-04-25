@@ -23,11 +23,11 @@
                 <p v-html="question.text" class="questionText"></p>
                 <p v-model="question.reference"></p>
                 <div class="choiceBox">
-                <ul>
-                    <li v-for="choice in choices">
-                        <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
-                    </li>
-                </ul>
+                    <ul>
+                        <li v-for="choice in choices">
+                            <button :id="choice" :value="choice" v-model="checkedChoices" v-on:click="answerQuiz(choice)">{{ choice }}</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -81,10 +81,7 @@
         methods: {
             // 回答する
             answerQuiz: function (answer) {
-                console.log('a')
-                console.log(answer)
                 console.log(this.question.corrects[0])
-                console.log('b')
 
                 // 項目を未選択の場合進まない
                 // if (this.checkedChoices.length === 0) return
@@ -133,29 +130,89 @@
                 var questions = [
                     {
                         'id': '0001',
-                        'text': '徹子の年齢は？',
+                        'text': '「トットちゃん」の愛称で知られる彼女ですが、もうひとつの愛称は何？',
                         'corrects': [
-                            '110歳'
+                            'チャック'
                         ],
                         'incorrects': [
-                            '120歳',
-                            '1130歳'
+                            'カルパッチョ斎藤',
+                            'ジッパー',
+                            'ジョンソン2号'
                         ],
-                        'answer': 'よく考えましょう'
                     },
                     {
                         'id': '0002',
-                        'text': '柳てつこ？',
+                        'text': '彼女の足のサイズは24cmだということは当たり前の事実ですが、では何年に生まれたでしょう？',
                         'corrects': [
-                            '黒'
+                            '1933年'
                         ],
                         'incorrects': [
-                            '白',
-                            'ほぼ',
-                            '赤'
+                            '1913年',
+                            '1923年',
+                            '1943年'
                         ],
-                        'answer': 'Black!!!!!!!!'
-                    }
+                    },
+                    {
+                        'id': '0003',
+                        'text': '彼女が日本チャップリン協会の名誉会長を務めることはご存知だとは思いますが、彼女の血液型は何型でしょう？',
+                        'corrects': [
+                            'A型'
+                        ],
+                        'incorrects': [
+                            'B型',
+                            'AB型',
+                            '髪型'
+                        ],
+                    },
+                    {
+                        'id': '0004',
+                        'text': '『徹子の部屋』が1976年2月にスタートしたことは誰もが知っている周知の事実ですが、2015年5月27日に"ギネス"の世界記録「同一の司会者による番組の最多放送回数記録」を更新したのは何回目の放送の時？',
+                        'corrects': [
+                            '1,000'
+                        ],
+                        'incorrects': [
+                            '5,000',
+                            '10,000',
+                            '30,000'
+                        ],
+                    },
+                    {
+                        'id': '0005',
+                        'text': '1971年のニューヨークへの留学以来「圧迫感がないからいい」という理由からノーブラで過ごしているのはさすがに知っていると思いますが、彼女が尊敬する司会者はだれ？',
+                        'corrects': [
+                            'エド・サリヴァン'
+                        ],
+                        'incorrects': [
+                            'ゲリー・スコッティ',
+                            'ルイス・ターナー',
+                            'みのもんた'
+
+                        ],
+                    },
+                    {
+                        'id': '0006',
+                        'text': '1984年3月14日放送のフジテレビ『笑っていいとも!』の名物コーナー「テレフォンショッキング」に出演した際に、どんな伝説を残したでしょうか。',
+                        'corrects': [
+                            '番組で40分以上も喋り続けた'
+                        ],
+                        'incorrects': [
+                            'タモリさんのサングラスをずらした',
+                            '美少女戦士セーラームーンのコスプレをしてきた',
+                            '予定されていた時間に現れずドタキャンをした'
+                        ],
+                    },
+                    {
+                        'id': '0007',
+                        'text': 'タモリが『徹子の部屋』にゲストとして出演する際には、何らかの「密室芸」の披露をしていたことは有名すぎるお話ですが、80年代の放送で2人が作って食べていないゲテモノ料理はどれ？',
+                        'corrects': [
+                            'マヨネーズ石狩鍋'
+                        ],
+                        'incorrects': [
+                            'たくあんを洗った水で作ったクリームソーダ',
+                            'チョコレートしゃぶしゃぶ',
+                            'ずんだ餅カレー'
+                        ],
+                    },
                 ]
 
                 console.log('init vars')
