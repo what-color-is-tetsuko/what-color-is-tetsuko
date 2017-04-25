@@ -19,7 +19,9 @@
     <div class="overlay">
         <div id="app">
             <div v-if="questionOpen" class="questionBackground">
-                <p v-html="question.text" class="questionText"></p>
+                <div class="questionText">
+                    <p v-html="question.text"></p>
+                </div>
                 <p v-model="question.reference"></p>
                 <div class="choiceBox">
                     <ul>
