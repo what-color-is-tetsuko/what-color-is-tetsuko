@@ -357,9 +357,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
@@ -570,23 +567,11 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "top"
-  }, [_c('div', {
-    staticClass: "bgmovie"
-  }, [_c('youtube', {
-    attrs: {
-      "video-id": _vm.videoId,
-      "mute": true,
-      "player-width": "1280",
-      "player-height": "750",
-      "player-vars": {
-        autoplay: 1,
-        showinfo: 0,
-        controls: 0
-      }
-    }
-  })], 1), _vm._v(" "), _c('img', {
+  }, [_c('img', {
     attrs: {
       "src": __webpack_require__(25)
     }
@@ -594,9 +579,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": __webpack_require__(23)
     }
-  }), _c('br'), _vm._v(" "), _vm._m(0), _vm._v("\naaaaaaaaaaaaaaa      aaaaaaaaaaaa\n  ")])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('button', {
+  }), _c('br'), _vm._v(" "), _c('button', {
     attrs: {
       "type": "button",
       "onclick": "location.href='quiz'"
@@ -605,7 +588,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": __webpack_require__(24)
     }
-  })])
+  })]), _vm._v("\naaaaaaaaaaaaaaa      aaaaaaaaaaaa\n  ")])
 }]}
 
 /***/ }),
@@ -818,4 +801,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[10]);
-//# sourceMappingURL=app.62bc4a7e224171692384.js.map
+//# sourceMappingURL=app.530a7a8ab0a81e681cbb.js.map
