@@ -18,8 +18,8 @@
 
 <body>
     <div class="overlay">
-        <div id="app" class="questionBackground">
-            <div v-if="questionOpen">
+        <div id="app">
+            <div v-if="questionOpen" class="questionBackground">
                 <p v-html="question.text" class="questionText"></p>
                 <p v-model="question.reference"></p>
                 <div class="choiceBox">
@@ -35,17 +35,24 @@
                 <button class="button is-primary" v-on:click="nextQuiz">次の問題</button>
             </div>
 
-            <div v-if="endOpen" transition="fade">
-                <h2>正答数： {{ correctNum }} / {{ questionIndex }}</h2>
-
+            <div v-if="endOpen" transition="fade" class="resultBackground">
+                <div class="resultContents">
+                    <div class="rightBox">
+                        <img src="./assets/silhouette.png">
+                    </div>
+                    <div class="leftBox">
+                        <h2 class="resultText">正答数： {{ correctNum }} / {{ questionIndex }}（ここはなんとか柳にかわるよ）</h2>
+                    </div>
+                    <div class="leftBox">
+                        <button class="button is-primary" v-on:click="initializeApp"><img src="./assets/button_retry.png"></button>
+                    </div>
+                </div>
                 <div class="sns">
                     <a href="" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
                     <a v-bind:href="'https://twitter.com/intent/tweet?text=' + '私は' + yanagi[correctNum] + '柳徹子でした' + '%0Ahttp://tetsuco.com'"
                         target="_blank" title="Twitterでシェア"><img src="./assets/button_twitter.png" alt="twitter"></a>
                     <a href="" target="_blank" title="LINEに送る"><img src="./assets/button_LINE.png" alt="LINE"></a>
                 </div>
-
-                <button class="button is-primary" v-on:click="initializeApp">もう１度！</button>
             </div>
         </div>
     </div>

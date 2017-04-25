@@ -109,3 +109,46 @@ body{
     width: 70%;
     margin: 0 auto;
 }
+
+.resultBackground {
+    background-color: rgba(255,255,255,0.8);
+    margin: -300px 0 0 -500px;
+    position: absolute;     /*body要素に対して絶対配置*/
+    top: 50%;       /*上端を中央に*/
+    left: 50%;      /*左端を中央に*/
+    width: 1000px;   /*横幅*/
+    height: 600px;  /*縦幅*/
+}
+
+.sns {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.sns img {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.resultContents {
+    width: 90%;
+    height: 65%;
+    margin: 0 auto;
+}
+
+.rightBox {
+    float: left;
+    padding-top: 47px;
+}
+
+.leftBox {
+    float: left;
+    padding-top: 47px;
+    padding-left: 20px;
+    width: 45%;
+}
+
+.resultText {
+    color: black;
+    font-size: 30px;
+}
