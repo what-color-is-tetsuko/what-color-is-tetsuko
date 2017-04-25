@@ -10,7 +10,10 @@
     <meta property="og:description" content="あなたはなにやなぎ？" />
     <!-- <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="./app.js">
+
+    </script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" type="text/css" href="./app.css">
 </head>
@@ -112,11 +115,7 @@
                     var n = this.questionIndex - 1
                     this.question = this.questions[n]
 
-                    // 選択肢を生成する correctsとincorrectsを繋げシャッフル
-
-                    var arr = this.question.incorrects
-                    arr.push(this.question.corrects[0])
-                    this.choices = arr
+                    this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
 
                     this.checkedChoices = []
                     window.scrollTo(0, 0)
@@ -250,13 +249,7 @@
 
                 // questionにquestionsの1問目を設定する
                 this.question = this.questions[0]
-
-                // 選択肢を生成する correctsとincorrectsを繋げシャッフル
-
-                // TODO: https://lodash.com/ 使っていい感じにする
-                var arr = this.question.incorrects
-                arr.push(this.question.corrects[0])
-                this.choices = arr
+                this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
             },
             // 画面生成後実行されるメソッド
             clear() {
