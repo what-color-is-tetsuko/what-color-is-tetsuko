@@ -42,7 +42,7 @@
                         <img src="./assets/silhouette.png">
                     </div>
                     <div class="leftBox">
-                        <h2 class="resultText">正答数： {{ correctNum }} / {{ questionIndex }}（ここはなんとか柳にかわるよ）</h2>
+                        <h2 class="resultText"> {{ correctNum }}問正解なので<br>私は「{{ yanagi[correctNum] }}柳徹子」でした</h2>
                     </div>
                     <div class="leftBox">
                         <button class="button is-primary" v-on:click="initializeApp"><img src="./assets/button_retry.png"></button>
@@ -131,8 +131,13 @@
                 var yanagi =
                     {
                         '0': '白',
-                        '1': 'ほぼ',
-                        '2': '黒'
+                        '1': '赤',
+                        '2': '青',
+                        '3': '桃',
+                        '4': '肌',
+                        '5': 'グレー',
+                        '6': 'ほぼ',
+                        '7': '黒'
                     }
 
                 var questions = [
