@@ -45,7 +45,7 @@ json = <<"EOS"
                         <h2 class="resultText"> #{n}問正解なので<br>あなたは<span class="#{roma}yanagi">「#{nihon[0]}柳徹子」</span><br/>でした</h2>
                     </div>
                     <div class="leftBox">
-                        <button class="button is-primary" onclick="location.href='quiz.html'"><img src="./assets/button_retry.png"></button>
+                        <button class="button is-primary" onclick="location.href='/'"><img src="./assets/button_retry.png"></button>
                     </div>
                 </div>
                 <div class="sns">
