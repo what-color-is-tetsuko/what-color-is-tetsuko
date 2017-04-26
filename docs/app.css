@@ -192,6 +192,10 @@ body{
     color: #b42878;
 }
 
+.kinyanagi {
+    color: #79631c;
+}
+
 @media screen and (max-width: 1000px) and (orientation: portrait) {
     .questionBackground {
         background-color: rgba(0,0,0,0.6);
