@@ -63,10 +63,20 @@
             correctNum: 0,
             shuffledArr: [],
             yanagi: {},
-            yanagiRoma: {}
+            yanagiRoma: {},
+            startTime: '',
+            diffTime: ''
+
         },
         methods: {
             moveResult: function (page) {
+                var nowTime = new Date().getTime()
+                this.diffTime = nowTime - this.startTime
+
+                if (this.diffTime < 11000 && this.correctNum == 7) {
+                    page = 'kin'
+                }
+
                 location.href = page + '.html';
             },
 
@@ -228,6 +238,9 @@
 
                 this.question = this.questions[0]
                 this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
+
+                this.startTime = new Date().getTime()
+
             },
             clear() {
                 this.msg = ''
