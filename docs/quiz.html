@@ -7,7 +7,6 @@
     <meta property="og:url" content="http://quiz.what-color-is-tetsuko.xyz/" />
     <meta property="og:type" content="artcle" />
     <meta property="og:title" content="黒柳テスト" />
-    <meta name="twitter:card" content="summary" />
     <meta property="og:description" content="あなたはなにやなぎ？" />
     <!-- <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
@@ -34,43 +33,19 @@
                 </div>
             </div>
 
-            <div v-if="answerOpen" transition="fade">
-                <button class="button is-primary" v-on:click="nextQuiz">次の問題</button>
-            </div>
-
             <div v-if="endOpen" transition="fade" class="resultBackground">
-                <div class="resultContents">
-                    <div class="rightBox">
-                        <img src="./assets/silhouette.png">
-                    </div>
-                    <div class="leftBox">
-                        <h2 class="resultText"> {{ correctNum }}問正解なので<br>私は「{{ yanagi[correctNum] }}柳徹子」でした</h2>
-                    </div>
-                    <div class="leftBox">
-                        <button class="button is-primary" v-on:click="initializeApp"><img src="./assets/button_retry.png"></button>
-                    </div>
-                </div>
-                <div class="sns">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://quiz.what-color-is-tetsuko.xyz/" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
-                    <a v-bind:href="'https://twitter.com/intent/tweet?text=' + '黒柳テストの結果です。' + '私は' + correctNum + '問正解でしたので ' + yanagi[correctNum] + '柳徹子 でした。' + '%0Ahttp://quiz.what-color-is-tetsuko.xyz/' + '%0Ahttps://pbs.twimg.com/media/C76mnNuVUAAciff.jpg'"
-                        target="_blank" title="Twitterでシェア"><img src="./assets/button_twitter.png" alt="twitter"></a>
-                    <a v-bind:href="'http://line.me/R/msg/text/?' + '私は' + correctNum + '問正解で' + '%0A「' + yanagi[correctNum] + '柳徹子」でした' + '%0A%0A黒柳テスト%0Ahttp://quiz.what-color-is-tetsuko.xyz/'"
-                        target="_blank" title="LINEに送る"><img src="./assets/button_LINE.png" alt="LINE"></a>
-                </div>
+                <p> {{ moveResult(yanagiRoma[correctNum]) }}</p>
             </div>
         </div>
-    </div>
-    <div class="bgmovie">
-        <div id="player">
+        <div class="bgmovie">
+            <div id="player"></div>
         </div>
     </div>
-
 </body>
 
 <script>
     new Vue({
         el: '#app',
-        // データ
         data: {
             questions: {},
             question: {
@@ -87,33 +62,29 @@
             questionIndex: 0,
             correctNum: 0,
             shuffledArr: [],
-            yanagi: {}
+            yanagi: {},
+            yanagiRoma: {}
         },
         methods: {
-            // 回答する
-            answerQuiz: function (answer) {
-                console.log(this.question.corrects[0])
+            moveResult: function (page) {
+                location.href = page + '.html';
+            },
 
-                // 項目を未選択の場合進まない
-                // if (this.checkedChoices.length === 0) return
-                // 正解を開き正誤の結果を表示する
+            answerQuiz: function (answer) {
                 this.answerOpen = true
                 this.isAnswerButtonDisabled = true
                 this.isCorrect = this.compareArr(answer, this.question.corrects[0])
                 if (this.isCorrect) this.correctNum++
 
-                // nextQuizのそのまんま入れた
                 this.answerOpen = false
                 this.questionIndex++
 
-                // questionIndex + 1と問題総数が一緒の場合、終わりページを開く
                 if (this.questionIndex === (this.questions.length + 1)) {
                     this.questionIndex = this.questions.length
                     this.questionOpen = false
                     this.endOpen = true
                     window.scrollTo(0, 0)
                 } else {
-                    // questionに次の問題をセットする
                     var n = this.questionIndex - 1
                     this.question = this.questions[n]
 
@@ -125,7 +96,7 @@
             },
 
             initializeApp: function () {
-                console.log('init')
+                console.log('あなたはジャバスク柳？')
 
                 var yanagi =
                     {
@@ -133,10 +104,20 @@
                         '1': '赤',
                         '2': '青',
                         '3': '桃',
-                        '4': '肌',
-                        '5': 'グレー',
-                        '6': 'ほぼ',
-                        '7': '黒'
+                        '4': 'グレー',
+                        '5': 'ほぼ',
+                        '6': '黒'
+                    }
+
+                var yanagiRoma =
+                    {
+                        '0': 'shiro',
+                        '1': 'aka',
+                        '2': 'ao',
+                        '3': 'momo',
+                        '4': 'gure',
+                        '5': 'hobo',
+                        '6': 'kuro',
                     }
 
                 var questions = [
@@ -226,8 +207,6 @@
                     },
                 ]
 
-                console.log('init vars')
-                // 変数の初期化
                 this.questionIndex = 1
                 this.correctNum = 0
                 this.isCorrect = false
@@ -237,22 +216,19 @@
                 this.checkedChoices = []
 
                 this.yanagi = yanagi
+                this.yanagiRoma = yanagiRoma
 
-                //  問題の取得
                 this.questions = questions
 
-                // // 問題をランダムに並べた配列を作成する
                 var questionsNum = this.questions.length
                 var arr = []
                 for (var i = 0; i < questionsNum; i++) {
                     arr[i] = i
                 }
 
-                // questionにquestionsの1問目を設定する
                 this.question = this.questions[0]
                 this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
             },
-            // 画面生成後実行されるメソッド
             clear() {
                 this.msg = ''
             },
