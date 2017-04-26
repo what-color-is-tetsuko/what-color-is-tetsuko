@@ -46,7 +46,6 @@
 <script>
     new Vue({
         el: '#app',
-        // データ
         data: {
             questions: {},
             question: {
@@ -71,30 +70,21 @@
                 location.href = page + '.html';
             },
 
-            // 回答する
             answerQuiz: function (answer) {
-                console.log(this.question.corrects[0])
-
-                // 項目を未選択の場合進まない
-                // if (this.checkedChoices.length === 0) return
-                // 正解を開き正誤の結果を表示する
                 this.answerOpen = true
                 this.isAnswerButtonDisabled = true
                 this.isCorrect = this.compareArr(answer, this.question.corrects[0])
                 if (this.isCorrect) this.correctNum++
 
-                // nextQuizのそのまんま入れた
                 this.answerOpen = false
                 this.questionIndex++
 
-                // questionIndex + 1と問題総数が一緒の場合、終わりページを開く
                 if (this.questionIndex === (this.questions.length + 1)) {
                     this.questionIndex = this.questions.length
                     this.questionOpen = false
                     this.endOpen = true
                     window.scrollTo(0, 0)
                 } else {
-                    // questionに次の問題をセットする
                     var n = this.questionIndex - 1
                     this.question = this.questions[n]
 
@@ -106,7 +96,7 @@
             },
 
             initializeApp: function () {
-                console.log('init')
+                console.log('あなたはジャバスク柳？')
 
                 var yanagi =
                     {
@@ -217,8 +207,6 @@
                     },
                 ]
 
-                console.log('init vars')
-                // 変数の初期化
                 this.questionIndex = 1
                 this.correctNum = 0
                 this.isCorrect = false
@@ -230,21 +218,17 @@
                 this.yanagi = yanagi
                 this.yanagiRoma = yanagiRoma
 
-                //  問題の取得
                 this.questions = questions
 
-                // // 問題をランダムに並べた配列を作成する
                 var questionsNum = this.questions.length
                 var arr = []
                 for (var i = 0; i < questionsNum; i++) {
                     arr[i] = i
                 }
 
-                // questionにquestionsの1問目を設定する
                 this.question = this.questions[0]
                 this.choices = _.shuffle(_.concat(this.question.corrects, this.question.incorrects));
             },
-            // 画面生成後実行されるメソッド
             clear() {
                 this.msg = ''
             },
