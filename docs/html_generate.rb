@@ -38,15 +38,15 @@ json = <<"EOS"
     <div class="overlay">
         <div id="app">
             <div class="resultBackground">
-                <div class="resultContents">
+                <div class="#{roma}resultContents">
                     <div class="rightBox">
                         <img src="./assets/#{roma}yanagi.png">
                     </div>
-                    <div class="leftBox">
-                        <h2 class="resultText"> #{n}問正解なので<br>あなたは「#{nihon}柳徹子」でした</h2>
+                    <div class="#{roma}leftBox">
+                        <h2 class="resultText"> #{n}問正解なので<br>あなたは<span class="#{roma}yanagi">「#{nihon}柳徹子」</span>でした</h2>
                     </div>
                     <div class="leftBox">
-                        <button class="button is-primary" v-on:click="initializeApp"><img src="./assets/button_retry.png"></button>
+                        <button class="button is-primary" onclick="location.href='quiz.html'"><img src="./assets/button_retry.png"></button>
                     </div>
                 </div>
                 <div class="sns">
