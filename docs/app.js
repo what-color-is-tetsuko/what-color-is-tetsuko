@@ -19,6 +19,9 @@ function onYouTubeIframeAPIReady () {
     }
   )
 }
+
+console.log('あなたはジャバスク柳？')
+
 // プレイ準備完了後
 function onPlayerReady (event) {
   event.target.playVideo()
