@@ -34,7 +34,7 @@
             </div>
 
             <div v-if="endOpen" transition="fade" class="resultBackground">
-                <h1> <a v-bind:href="'./' + yanagiRoma[correctNum] + '.html'">結果はこちら</a></h1>
+                <p> {{ moveResult(yanagiRoma[correctNum]) }}</p>
             </div>
         </div>
     </div>
@@ -64,6 +64,10 @@
             yanagiRoma: {}
         },
         methods: {
+            moveResult: function (page) {
+                location.href = page + '.html';
+            },
+
             // 回答する
             answerQuiz: function (answer) {
                 console.log(this.question.corrects[0])
