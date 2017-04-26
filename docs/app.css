@@ -141,7 +141,8 @@ body{
 }
 
 .resultContents {
-    width: 90%;
+    padding-top: 37px;
+    width: 73%;
     height: 65%;
     margin: 0 auto;
 }
@@ -153,18 +154,57 @@ body{
 
 .leftBox {
     float: left;
-    padding-top: 47px;
     padding-left: 20px;
-    width: 45%;
+    padding-bottom: 5px;
+    width: 50%;
 }
 
-.leftBox img {
-    text
+/*gure対応*/
+.gureesultContents {
+    padding-top: 37px;
+    width: 75%;
+    height: 65%;
+    margin: 0 auto;
+}
+
+.gureleftBox {
+    float: left;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    width: 55%;
 }
 
 .resultText {
+    padding-top: 50px;
     color: black;
-    font-size: 30px;
+    font-size: 35px;
+}
+
+/*yanagi*/
+.akayanagi {
+    color: #9a1110;
+}
+
+.aoyanagi {
+    color: #1a2a5f;
+}
+
+.gureyanagi {
+    text-shadow: black 1px 1px 0px, black -1px 1px 0px,black 1px -1px 0px, black -1px -1px 0px;
+    color: #8b8b8b;
+}
+
+.hoboyanagi {
+    color: #7b5a4c;
+}
+
+.shiroyanagi {
+    text-shadow: black 1px 1px 0px, black -1px 1px 0px,black 1px -1px 0px, black -1px -1px 0px;
+    color: white;
+}
+
+.momoyanagi {
+    color: #b42878;
 }
 
 @media screen and (max-width: 1000px) and (orientation: portrait) {
