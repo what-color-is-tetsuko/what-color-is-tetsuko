@@ -20,7 +20,7 @@ json = <<"EOS"
 <head>
     <meta charset="utf-8">
     <title>黒柳テスト</title>
-    <meta property="og:url" content="http://quiz.what-color-is-tetsuko.xyz/" />
+    <meta property="og:url" content="http://quiz.what-color-is-tetsuko.xyz/#{roma}.html" />
     <meta property="og:type" content="artcle" />
     <meta property="og:title" content="黒柳テスト" />
     <meta property="og:description" content="わたしは「#{nihon[0]}柳徹子」でした" />
