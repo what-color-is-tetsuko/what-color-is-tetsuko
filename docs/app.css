@@ -166,3 +166,54 @@ body{
     color: black;
     font-size: 30px;
 }
+
+@media screen and (max-width: 1000px) {
+    .questionBackground {
+        background-color: rgba(0,0,0,0.6);
+        border: 2px solid #FFF;
+        margin: -600px 0 0 -450px;  /*縦横半分をネガティブマージンでずらす*/
+        position: absolute;     /*body要素に対して絶対配置*/
+        top: 50%;       /*上端を中央に*/
+        left: 50%;      /*左端を中央に*/
+        width: 900px;   /*横幅*/
+        height: 1200px;  /*縦幅*/
+    }
+
+    .questionText {
+        width: 80%;
+        height: 35%;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+
+    .questionText p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 40px;
+    }
+
+    .questionBackground button {
+        background-color: transparent;
+        border: none;
+        font-size: 40px;
+        color: #FFF;
+        outline: 0;
+    }
+
+    .questionBackground ul {
+        list-style-type: upper-alpha;
+        font-size: 40px;
+        margin-top: 0px;
+    }
+
+    .questionBackground li {
+        padding-bottom: 70px;
+    }
+
+    .choiceBox {
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+
+}
