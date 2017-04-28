@@ -23,7 +23,6 @@ json = <<"EOS"
     <meta name="description" content="わたしは「#{nihon[0]}柳徹子」でした" />
     <meta name="twitter:widgets:csp" content="on">
     <meta property="og:url" content="http://www.kuroyanagi-test.com/#{roma}.html" />
-    <meta property="og:type" content="article" />
     <meta property="og:title" content="黒柳テスト" />
     <meta property="og:description" content="わたしは「#{nihon[0]}柳徹子」でした" />
     <meta property="og:image" content="https://raw.githubusercontent.com/what-color-is-tetsuko/what-color-is-tetsuko/master/docs/assets/#{roma}yanagi.png"
