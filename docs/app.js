@@ -7,11 +7,12 @@ function onYouTubeIframeAPIReady () {
     {
       videoId: 'iS8jKACWPuw', // YouTubeのID
       playerVars: {
-        loop: 1, // 0:ループしない 1:ループする 1の場合playlist設定必須
-        playlist: 'iS8jKACWPuw', // 次に流すYoutubeのID
-        controls: 0, // コントローラー無し
-        autoplay: 1, // オートプレイ
-        showinfo: 0 // 動画タイトルなど表示しない
+        loop: 1,
+        playlist: 'iS8jKACWPuw',
+        controls: 0,
+        autoplay: 1,
+        showinfo: 0,
+        playsinline: 1
       },
       events: {
         'onReady': onPlayerReady
@@ -24,8 +25,8 @@ console.log('あなたはジャバスク柳？')
 
 // プレイ準備完了後
 function onPlayerReady (event) {
-  event.target.playVideo()
   event.target.mute()
+  event.target.playVideo()
 }
 
 (function (i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
