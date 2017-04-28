@@ -21,6 +21,7 @@ json = <<"EOS"
     <meta charset="utf-8">
     <title>黒柳テスト</title>
     <meta name="description" content="わたしは「#{nihon[0]}柳徹子」でした" />
+    <meta name="twitter:widgets:csp" content="on">
     <meta property="og:url" content="http://www.kuroyanagi-test.com/#{roma}.html" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="黒柳テスト" />
