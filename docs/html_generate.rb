@@ -52,7 +52,7 @@ json = <<"EOS"
                 </div>
                 <div class="sns">
                     <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.kuroyanagi-test.com/#{roma}.html" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
-                    <a href="https://twitter.com/intent/tweet?text=わたしは #{n}問正解 でしたので「#{nihon[0]}柳徹子」でした。%0A%0A%23黒柳テスト%0Ahttps://goo.gl/GyfgCS%0A#{nihon[1]}"
+                    <a href="https://twitter.com/intent/tweet?text=わたしは #{n}問正解 でしたので「#{nihon[0]}柳徹子」でした。%0A%0A%23黒柳テスト%0Ahttp://www.kuroyanagi-test.com/%0A%0A#{nihon[1]}"
                         target="_blank" title="Twitterでシェア"><img src="./assets/button_twitter.png" alt="twitter"></a>
                     <a href="http://line.me/R/msg/text/?わたしは #{n}問正解で%0A「#{nihon[0]}柳徹子」でした%0A%0A黒柳テスト%0Ahttp://www.kuroyanagi-test.com/#{roma}.html" target="_blank"
                         title="LINEに送る"><img src="./assets/button_LINE.png" alt="LINE"></a>
