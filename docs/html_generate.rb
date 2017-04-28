@@ -20,7 +20,8 @@ json = <<"EOS"
 <head>
     <meta charset="utf-8">
     <title>黒柳テスト</title>
-    <meta property="og:url" content="http://quiz.what-color-is-tetsuko.xyz/#{roma}.html" />
+    <meta name="description" content="わたしは「#{nihon[0]}柳徹子」でした" />
+    <meta property="og:url" content="http://www.kuroyanagi-test.com/#{roma}.html" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="黒柳テスト" />
     <meta property="og:description" content="わたしは「#{nihon[0]}柳徹子」でした" />
@@ -49,10 +50,10 @@ json = <<"EOS"
                     </div>
                 </div>
                 <div class="sns">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://quiz.what-color-is-tetsuko.xyz/#{roma}.html" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
-                    <a href="https://twitter.com/intent/tweet?text=わたしは #{n}問正解 でしたので「#{nihon[0]}柳徹子」でした。%0A%0A%23黒柳テスト%0Ahttp://quiz.what-color-is-tetsuko.xyz/%0A#{nihon[1]}"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.kuroyanagi-test.com/#{roma}.html" target="_blank" title="Facebookでシェア"><img src="./assets/button_facebook.png" alt="facebook"></a>
+                    <a href="https://twitter.com/intent/tweet?text=わたしは #{n}問正解 でしたので「#{nihon[0]}柳徹子」でした。%0A%0A%23黒柳テスト%0Ahttp://www.kuroyanagi-test.com/%0A#{nihon[1]}"
                         target="_blank" title="Twitterでシェア"><img src="./assets/button_twitter.png" alt="twitter"></a>
-                    <a href="http://line.me/R/msg/text/?わたしは #{n}問正解で%0A「#{nihon[0]}柳徹子」でした%0A%0A黒柳テスト%0Ahttp://quiz.what-color-is-tetsuko.xyz/#{roma}.html" target="_blank"
+                    <a href="http://line.me/R/msg/text/?わたしは #{n}問正解で%0A「#{nihon[0]}柳徹子」でした%0A%0A黒柳テスト%0Ahttp://www.kuroyanagi-test.com/#{roma}.html" target="_blank"
                         title="LINEに送る"><img src="./assets/button_LINE.png" alt="LINE"></a>
                 </div>
             </div>
